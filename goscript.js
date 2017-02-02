@@ -6,7 +6,7 @@
 	<input type="submit" onClick="passTurn()" value="Pass" style="margin:auto;display:block"/>
 	<script src="goscript.js" async></script>
 </div>*/
-(function(){
+
 	const size = 13, scale = Math.min(window.innerWidth / size - 1, 50), dotdist = 3;
 	
 	
@@ -95,7 +95,25 @@
 		*/
 	}
 	
-	function place(e){
+	
+	
+	
+	//keep mouse pos in mousePos
+	canvas.addEventListener('mousemove', function(evt){
+        mousePos = getMousePos(canvas, evt);
+     }, false);
+	
+	//make the pos a pair
+	function getMousePos(canvas, evt){
+        var rect = canvas.getBoundingClientRect();
+        return{
+          x: evt.clientX - rect.left,
+          y: evt.clientY - rect.top
+        };
+    }
+	
+
+function place(e){
 		
 		//x and y in board coordinates
 		var x = mousePos.x / scale | 0;
@@ -195,21 +213,6 @@
 		*/
 	}//place
 	
-	
-	//keep mouse pos in mousePos
-	canvas.addEventListener('mousemove', function(evt){
-        mousePos = getMousePos(canvas, evt);
-     }, false);
-	
-	//make the pos a pair
-	function getMousePos(canvas, evt){
-        var rect = canvas.getBoundingClientRect();
-        return{
-          x: evt.clientX - rect.left,
-          y: evt.clientY - rect.top
-        };
-    }
-	
 	//draw the board
 	function draw(){
 		//BG
@@ -287,4 +290,7 @@
 			}
 		}
 	}//draw
-})();
+	
+	
+	
+	
