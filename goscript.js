@@ -4,9 +4,9 @@
 <div id="godiv">
 	<canvas id="goCanvas" onmousedown="place(event)"></canvas><br><br>
 	<input type="submit" onClick="passTurn()" value="Pass" style="margin:auto;display:block"/>
-	<input id="playerButton" type="submit" onClick="changePlayer()" value="Play as white" style="margin:auto;display:block"/>
 	<script src="goscript.js" async></script>
 </div>*/
+function(){
 	const size = 13, scale = Math.min(window.innerWidth / size - 1, 50), dotdist = 3;
 	
 	
@@ -46,7 +46,7 @@
 	update();
 	draw();
 	
-	//keep updating every 5 seconds
+	/*//keep updating every 5 seconds
 	setInterval(function(){
 		update();
 	}, 5000);
@@ -73,14 +73,7 @@
 		xhttp.open("GET", "?getGoBoard=true", true);
 		xhttp.send();
 	}//update
-	
-	function changePlayer(){
-		if(player == 0)
-			playerButton.innerHTML = "Play as black";
-		else
-			playerButton.innerHTML = "Play as white";
-		player = 1 - player;
-	}
+	*/
 	
 	function passTurn(){
 		if(board[size] != player)
@@ -88,13 +81,18 @@
 		//change turn
 		board[size] = 1 - board[size];
 		
+		//ONLY FOR LOCAL PLAY
+		player = 1 - player;
+		
 		draw();
 		
+		/*
 		//send new board
 		var xhttp = new XMLHttpRequest();
 		xhttp.open("POST", "", true);
 		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhttp.send("goBoard="+JSON.stringify(board));
+		*/
 	}
 	
 	function place(e){
@@ -182,13 +180,19 @@
 		//change turn
 		board[size] = 1 - board[size];
 		
+		
+		//ONLY FOR LOCAL PLAY
+		player = 1 - player;
+		
 		draw();
 		
+		/*
 		//send new board
 		var xhttp = new XMLHttpRequest();
 		xhttp.open("POST", "", true);
 		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhttp.send("goBoard="+JSON.stringify(board));
+		*/
 	}//place
 	
 	
@@ -280,3 +284,4 @@
 			}
 		}
 	}//draw
+}()
