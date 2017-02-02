@@ -243,17 +243,17 @@ function draw(){
 		g.lineTo(b, a);
 		g.lineTo(a, a);
 		
-		/*
-		* Custom favicons for turn indication
+		
+		// Custom favicons for turn indication
 		if(board[size] == 0){
 			g.strokeStyle = 'black';
-			document.querySelector("link[rel='shortcut icon']").href = "/img/blackfavicon.ico";
+			//document.querySelector("link[rel='shortcut icon']").href = "/img/blackfavicon.ico";
 
 		}else{
 			g.strokeStyle = 'white';
-			document.querySelector("link[rel='shortcut icon']").href = "/img/whitefavicon.ico";
+			//document.querySelector("link[rel='shortcut icon']").href = "/img/whitefavicon.ico";
 		}
-		*/
+		
 		g.lineWidth = 3;
 		g.stroke();
 	}
