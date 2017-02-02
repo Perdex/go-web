@@ -43,8 +43,8 @@
 	board[size] = -1;
 	
 	//get board
-	update();
-	draw();
+	//update();
+	//draw();
 	
 	/*//keep updating every 5 seconds
 	setInterval(function(){
