@@ -70,7 +70,7 @@
 					moveMade = false;
 			}
 		};
-		xhttp.open("GET", "autosaver.php?getGoBoard=true", true);
+		xhttp.open("GET", "?getGoBoard=true", true);
 		xhttp.send();
 	}//update
 	
@@ -92,7 +92,7 @@
 		
 		//send new board
 		var xhttp = new XMLHttpRequest();
-		xhttp.open("POST", "autosaver.php", true);
+		xhttp.open("POST", "", true);
 		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhttp.send("goBoard="+JSON.stringify(board));
 	}
@@ -186,7 +186,7 @@
 		
 		//send new board
 		var xhttp = new XMLHttpRequest();
-		xhttp.open("POST", "autosaver.php", true);
+		xhttp.open("POST", "", true);
 		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhttp.send("goBoard="+JSON.stringify(board));
 	}//place
