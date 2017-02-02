@@ -6,7 +6,7 @@
 	<input type="submit" onClick="passTurn()" value="Pass" style="margin:auto;display:block"/>
 	<script src="goscript.js" async></script>
 </div>*/
-function(){
+(function(){
 	const size = 13, scale = Math.min(window.innerWidth / size - 1, 50), dotdist = 3;
 	
 	
@@ -287,4 +287,4 @@ function(){
 			}
 		}
 	}//draw
-}()
+})();
